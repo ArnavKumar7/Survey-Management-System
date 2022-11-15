@@ -32,7 +32,7 @@ if(!isset($conn)){
 				</div>
 				<hr>
 				<div class="col-lg-12 text-right justify-content-center d-flex">
-					<button class="btn btn-primary mr-2">Save</button>
+					<button class="btn btn-primary mr-2" type="submit">Save</button>
 					<button class="btn btn-secondary" type="button" onclick="location.href = 'index.php?page=survey_list'">Cancel</button>
 				</div>
 			</form>
@@ -61,6 +61,6 @@ if(!isset($conn)){
 					},1500)
 				}
 			}
-		})
+		})	
 	})
 </script>
