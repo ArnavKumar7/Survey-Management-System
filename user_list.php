@@ -22,12 +22,12 @@
 					<?php
 					$i = 1;
 					$type = array('',"Admin","Staff","Subscriber");
-					$qry = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM users order by concat(lastname,', ',firstname,' ',middlename) asc");
+					$qry = $conn->query("SELECT *,concat(firstname,' ',middlename,' ',lastname) as name FROM users order by concat(firstname,' ',middlename,' ',lastname) asc");
 					while($row= $qry->fetch_assoc()):
 					?>
 					<tr>
 						<th class="text-center"><?php echo $i++ ?></th>
-						<td><b><?php echo ucwords($row['name']) ?></b></td>
+						<td><b><?php echo $row['name'] ?></b></td>
 						<td><b><?php echo $row['contact'] ?></b></td>
 						<td><b><?php echo $type[$row['type']] ?></b></td>
 						<td><b><?php echo $row['email'] ?></b></td>
