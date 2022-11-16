@@ -134,7 +134,7 @@ $answers = $conn->query("SELECT distinct(user_id) from answers where survey_id =
 			Subject : "New Survey!",
 			Body : "Hi, I am Arnav Kumar. I have created a new survey. Please check it out. Thank You!"
 		}).then(
-		message => alert(message)
+		message => message == "OK" ? alert_toast("Email sent successfully","success") : alert("Sorry, there's an error in sending mail")
 		);
 	})
 
