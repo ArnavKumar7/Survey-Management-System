@@ -124,28 +124,31 @@ $answers = $conn->query("SELECT distinct(user_id) from answers where survey_id =
 	$('.delete_question').click(function(){
 	_conf("Are you sure to delete this question?","delete_question",[$(this).attr('data-id')])
 	})
-	<?php
-		$qry = $conn->query("SELECT * FROM users where type=3");
-		$array = array();
-		while($row= $qry->fetch_assoc()):
-			$array[] = $row['email'];
-	?>
-	<?php endwhile; ?>
-	<?php
-		echo "var emails = '$array'.';"; 
-	?>
+	// <?php
+	// 	$array = array();
+	// 	$qry = $conn->query("SELECT * FROM users where type=3");
+	// 	while($row= $qry->fetch_assoc()):
+	// 		$array[] = $row['email'];
+	// ?>
+	// <?php
+	// 	endwhile;
+	// ?>
+	// <?php
+	// 	echo $array;
+	// 	echo "var emails = '$array';";
+	// ?>
 	console.log(emails);
 	$('#send_email').click(function(){
 		Email.send({
     		Host : "smtp.elasticemail.com",
 			Username : "sinhaarnav47@gmail.com",
 			Password : "39F881EE164F1A33AE56B17CDA6BAEFAE23C",
-			To : "arnav4776@gmail.com",
+			To : "samayj10@gmail.com",
 			From : "sinhaarnav47@gmail.com",
 			Subject : "New Survey!",
 			Body : "Hi, I am Arnav Kumar. I have created a new survey. Please check it out. Thank You!"
 		}).then(
-		message => alert(message)
+		message => message == "OK" ? alert("Mail Sent Successfully") : alert("There was an error sending the email")
 		);
 	})
 
